@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="title">APCaptcha</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" href="fontawesome.min.css" />
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 px-1 position-fixed" id="sticky-sidebar">
+                <div>
+                    <img class="logo dragable" src="../img/logo.png" />
+                </div>
+                <div>
+                    <img class="sideButtons" id="mainBtn" style="margin-top: 15px; margin-bottom: 20px;"
+                        src="../img/dashboard.png" />
+                </div>
+                <div>
+                    <img class="sideButtons" id="settingsBtn" style="margin-bottom: 20px;" src="../img/settings.png" />
+                </div>
+                <div>
+                    <img class="sideButtons" id="taskBtn" src="../img/lightning.png" />
+                </div>
+            </div>
+            <section class="col offset-1" id="main">
+                <img className="closee" style="margin-left: 99%" id="close-btn" src="../img/x.png" />
+                <center>
+                    <b class="pageTitle">Browser's</b>
+                </center>
+
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="input-group mb-3" style="top:8px;">
+                                <input type="text" class="form-control" id="massChangeLink"
+                                    placeholder="https://www.exampleurl.com/" aria-label="testurl"
+                                    aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" id="massLinkChange"
+                                        type="button">Change</button>
+                                    <button class="btn btn-outline-secondary" id="closeLinkChange"
+                                        type="button">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="myModal1" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="input-group mb-3" style="top:8px;">
+                                <input type="text" class="form-control" id="changeLink"
+                                    placeholder="https://www.exampleurl.com/" aria-label="testurl"
+                                    aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" id="linkChange"
+                                        type="button">Change</button>
+                                    <button class="btn btn-outline-secondary" id="closeLinkChange1"
+                                        type="button">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="deleteAllBtn" class="btn btn-outline-danger deleteAllBtn">Close All</button>
+                <button type="button" id="refreshBtn" class="btn btn-outline-warning refreshBtn">Refresh All</button>
+                <button type="button" id="linkChangeBtn" class="btn btn-outline-dark linkChangeBtn">Mass Link
+                    Change</button>
+                <div class="labels">
+                    <b style="position: relative; left: 36px">ID</b>
+                    <b style="position: relative; left: 13.5%">Home URL</b>
+                    <b style="position: relative; left: 50%">Profile</b>
+                    <b style="position: relative; left: 67.7%">Controls</b>
+                </div>
+                <div class="container taskContainer" id="taskContainer">
+                </div>
+            </section>
+
+
+
+
+            <section class="col offset-1" id="settings">
+                <center>
+                    <b class="pageTitle">Settings</b>
+                </center>
+                <div id="mainSettings" class="mainSettings">
+                    <label style="color: white; display: block; margin-left: 100px;" for="proxy">Proxies:</label>
+                    <textarea class="proxies" id="proxy"></textarea>
+                    <div class="createProfile">
+                        <div class="form-group selectFill">
+                            <select class="form-control" id="selectFill" onchange="loadProfile()">
+                                <option>Profile (new)</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Profile Name</span>
+                            </div>
+                            <input type="text" id="ProfileName" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                            </div>
+                            <input type="text" id="Email" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Full Name</span>
+                            </div>
+                            <input type="text" id="FullName" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Address</span>
+                            </div>
+                            <input type="text" id="Address" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">City</span>
+                            </div>
+                            <input type="text" id="City" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">State</span>
+                            </div>
+                            <input type="text" id="State" placeholder="NY" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Zip Code</span>
+                            </div>
+                            <input type="text" id="Zip" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Phone #</span>
+                            </div>
+                            <input type="text" id="Phone" placeholder="4020304023" class="form-control"
+                                aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Card #</span>
+                            </div>
+                            <input type="text" id="Card" placeholder="1234123412341234" class="form-control"
+                                aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3 site">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Exp</span>
+                            </div>
+                            <input type="text" placeholder="08/21" id="Exp" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">CVV</span>
+                            </div>
+                            <input type="text" id="CVV" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <button id="createProfileButton" type="button" class="btn btn-dark createProfileButton">Create
+                        Profile</button>
+                    <button id="deleteProfile" type="button" class="btn btn-danger deleteProfile">Delete
+                        Profile</button>
+                    <button id="saveProxiesButton" type="button" class="btn btn-dark saveProxiesButton">Save
+                        Proxies</button>
+                </div>
+            </section>
+            <section class="col offset-1" id="tasks">
+                <center>
+                    <b class="pageTitle">Create Tasks</b>
+                </center>
+
+                <div class="col-xs-6 createBox">
+                    <div class="input-group input-group-sm mb-3 createSite">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Site</span>
+                        </div>
+                        <input type="text" id="Site" placeholder="https://kith.com" class="form-control"
+                            aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3 quantity">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
+                        </div>
+                        <input type="text" value="1" id="quantity" class="form-control" aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: white;" for="selectProfile">Profile</label>
+                        <select class="form-control" id="selectProfile">
+                            <option>None</option>
+                        </select>
+                    </div>
+
+                    <button id="createButton" type="button" class="btn btn-dark createTask">Create Task</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="listener.js"></script>
+    <script src="sender.js"></script>
+</body>
+
+</html>

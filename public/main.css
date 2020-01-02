@@ -1,0 +1,265 @@
+#sticky-sidebar {
+    height: 100%;
+    background-image: url('../img/side.png');
+}
+
+.sideButtons {
+    width: 40px;
+    height: 40px;
+    margin-left: 22.5%;
+}
+
+.logo {
+    width:80px; 
+    height:80px; 
+    margin-left: 0%;
+}
+
+section {
+    background-image: url('../img/background.png');
+    height: 700px;
+}
+
+.pageTitle {
+    line-height: 3;
+    color: white;
+    position: relative;
+    padding: 10%;
+    font-size: 30px;
+    font-family: 'Montserrat'; 
+}
+
+.taskBar {
+    border-collapse: separate;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.taskContainer {
+    overflow-x: auto;
+    border-radius: 3px;
+    height: 500px;
+    width: 700px;
+    background: rgba(72,61,139, 0.1);
+}
+
+.open {
+    height: 20px;
+}
+
+.reload {
+    margin-left: 10px;
+    height: 20px;
+}
+
+.link {
+    margin-left: 10px;
+    height: 20px;
+}
+
+.delete {
+    margin-left: 10px;
+    height: 20px;
+}
+
+.proxies {
+    color: white;
+    overflow-y: scroll;
+    vertical-align: top;
+    display: block;
+    resize: none;
+    border-radius: 3px;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    left: 100px;
+    background: rgba(0,0,0, 0.3);
+}
+
+.createProfile {
+    margin-left: 625px;
+
+}
+
+.site {
+    top: -355px;
+    left: -150px;
+}
+
+.mainSettings {
+    position: relative;
+    float: left;
+}
+
+body {
+    overflow: hidden;
+}
+
+.createProfileButton {
+    position: absolute;
+    margin-left: 500px;
+    margin-top: -350px;
+}
+
+.autoFill {
+    color: white;
+    position: absolute;
+    left: -145px;
+}
+
+.saveProxiesButton {
+    position: absolute;
+    margin-left: -620px;
+    margin-top: -355px;
+}
+
+.dragable {
+    -webkit-app-region: drag;
+}
+
+.close-btn {
+    position: fixed;
+    margin-left: 20px;
+    top: 50px;
+    height: 11px;
+    cursor: pointer;
+}
+
+.closee {
+    position: relative;
+    margin-left: 50%;
+}
+
+.labels {
+    position: relative;
+    color: white;
+    top: -5px;
+}
+
+.createBox {
+    width: 400px;
+    height: 500px;
+    margin-left: 290px;
+    margin-top: 50px;
+}
+
+.autoFillCheck {
+    color: white;
+    position: absolute;
+    left: 160px;
+}
+
+.createSite {
+    width: 80%;
+}
+
+.createTask {
+    margin-left: 36%;
+    margin-top: 30px;
+}
+
+.quantity {
+    margin-top: 30px;
+}
+
+.deleteProfile {
+    margin-top: -690px;
+    margin-left: 685px;
+}
+
+.profileName {
+    position: absolute;
+    color: white;
+    left: 613px;
+    top: 146px;
+}
+
+.selectFill {
+    color: white;
+    position: absolute;
+    width: 355px;
+    margin-top: -410px;
+    margin-left: -150px;}
+
+.refreshBtn {
+    position: absolute;
+    left: 700px;
+    top: 50px;
+}
+
+.linkChangeBtn {
+    position: absolute;
+    left: 820px;
+    top: 50px;
+}
+
+.deleteAllBtn {
+    position: absolute;
+    left: 25px;
+    top: 50px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: rgba(0,0,0,0.4);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Modal Body */
+ .modal-body {
+    padding: 2px 16px;
+    background: rgb(25, 25, 45);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: rgb(13, 12, 31);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.5s
+  }
+  
+  /* Add Animation */
+  @keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
